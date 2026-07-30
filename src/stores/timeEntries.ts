@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import apiClient from '../api/client'
-import type { TimeEntry, CreateTimeEntryPayload } from '../types/timeEntry'
+import type { TimeEntry, CreateTimeEntryPayload, UpdateTimeEntryPayload  } from '../types/timeEntry'
 
 export const useTimeEntriesStore = defineStore('timeEntries', () => {
   const entries = ref<TimeEntry[]>([])
@@ -22,10 +22,15 @@ export const useTimeEntriesStore = defineStore('timeEntries', () => {
     entries.value.unshift(response.data)
   }
 
+  async function update(id: number, payload: UpdateTimeEntryPayload) {
+    await apiClient.put(`/api/timeentries/${id}`, payload)
+    await fetchAll()
+  }
+
   async function remove(id: number) {
     await apiClient.delete(`/api/timeentries/${id}`)
     entries.value = entries.value.filter((e) => e.id !== id)
   }
 
-  return { entries, isLoading, fetchAll, create, remove }
+  return { entries, isLoading, fetchAll, create, update, remove }
 })
