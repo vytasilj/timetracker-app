@@ -21,3 +21,13 @@
   --color-accent-strong: #5eead4;
   --color-border: #24312b;
 }
+
+input[type='time'],
+input[type='date'] {
+  color-scheme: light;
+}
+
+.dark input[type='time'],
+.dark input[type='date'] {
+  color-scheme: dark;
+}

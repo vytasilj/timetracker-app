@@ -22,10 +22,15 @@ export const useClientsStore = defineStore('clients', () => {
     clients.value.push(response.data)
   }
 
+  async function update(id: number, payload: CreateClientPayload) {
+  await apiClient.put(`/api/clients/${id}`, payload)
+  await fetchAll()
+}
+
   async function remove(id: number) {
     await apiClient.delete(`/api/clients/${id}`)
     clients.value = clients.value.filter((c) => c.id !== id)
   }
 
-  return { clients, isLoading, fetchAll, create, remove }
+  return { clients, isLoading, fetchAll, create, update, remove }
 })
