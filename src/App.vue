@@ -21,6 +21,7 @@ function handleLogout() {
         <RouterLink to="/time-entries" class="text-ink hover:text-accent">Time Entries</RouterLink>
         <RouterLink to="/clients" class="text-ink hover:text-accent">Clients</RouterLink>
         <RouterLink to="/projects" class="text-ink hover:text-accent">Projects</RouterLink>
+        <RouterLink to="/reports" class="text-ink hover:text-accent">Reports</RouterLink>
       </div>
       <div class="flex items-center gap-3">
         <button @click="toggleTheme" class="rounded-md border border-border px-3 py-1 text-sm text-ink hover:border-accent">

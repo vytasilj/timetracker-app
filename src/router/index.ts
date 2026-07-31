@@ -3,6 +3,7 @@ import TimeEntriesView from '../views/TimeEntriesView.vue'
 import ClientsView from '../views/ClientsView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import LoginView from '../views/LoginView.vue'
+import ReportsView from '../views/ReportsView.vue'
 import { useAuthStore } from '../stores/auth'
 
 const router = createRouter({
@@ -13,6 +14,7 @@ const router = createRouter({
     { path: '/time-entries', name: 'time-entries', component: TimeEntriesView },
     { path: '/clients', name: 'clients', component: ClientsView },
     { path: '/projects', name: 'projects', component: ProjectsView },
+    { path: '/reports', name: 'reports', component: ReportsView },
   ],
 })
 
