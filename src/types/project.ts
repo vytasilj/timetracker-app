@@ -5,12 +5,29 @@ export interface Project {
   clientId: number
   clientName: string
   name: string
-  defaultHourlyRate: number
+  currentHourlyRate: number
   status: ProjectStatus
 }
 
 export interface CreateProjectPayload {
   clientId: number
   name: string
-  defaultHourlyRate: number
+  initialHourlyRate: number
+  effectiveFrom: string
+}
+
+export interface UpdateProjectPayload {
+  name: string
+  status: ProjectStatus
+}
+
+export interface ProjectRate {
+  id: number
+  hourlyRate: number
+  effectiveFrom: string
+}
+
+export interface CreateProjectRatePayload {
+  hourlyRate: number
+  effectiveFrom: string
 }
