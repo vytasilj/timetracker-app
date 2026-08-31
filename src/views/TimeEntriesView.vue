@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useTimeEntriesStore } from '../stores/timeEntries'
 import { useProjectsStore } from '../stores/projects'
 import type { TimeEntry } from '../types/timeEntry'
+import TimePicker from '../components/TimePicker.vue'
 
 const timeEntriesStore = useTimeEntriesStore()
 const projectsStore = useProjectsStore()
@@ -144,8 +145,7 @@ async function handleDelete(id: number) {
       </div>
 
       <div v-else class="flex flex-wrap items-center gap-2">
-        <input v-model="startTime" type="time"
-          class="rounded-md border border-border bg-surface px-3 py-2 text-ink" />
+        <TimePicker v-model="startTime" placeholder="Start (HH:mm)" />
         <button type="button" @click="startTime = currentTimeString()"
           class="rounded-md border border-border px-2 py-1 text-xs text-ink-muted hover:border-accent hover:text-accent">
           Now
@@ -153,8 +153,7 @@ async function handleDelete(id: number) {
 
         <span class="text-ink-muted">to</span>
 
-        <input v-model="endTime" type="time" placeholder="leave empty if still in progress"
-          class="rounded-md border border-border bg-surface px-3 py-2 text-ink" />
+        <TimePicker v-model="endTime" placeholder="End (optional)" />
         <button type="button" @click="endTime = currentTimeString()"
           class="rounded-md border border-border px-2 py-1 text-xs text-ink-muted hover:border-accent hover:text-accent">
           Now
