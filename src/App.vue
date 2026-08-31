@@ -8,8 +8,8 @@ const authStore = useAuthStore()
 const route = useRoute()
 const router = useRouter()
 
-function handleLogout() {
-  authStore.logout()
+async function handleLogout() {
+  await authStore.logout()
   router.push('/login')
 }
 </script>
